@@ -21,9 +21,9 @@ class Quiz {
     }
 
     checkAnswer(answer) {
-        if (answer === this.questions[this.currentQuestionIndex].answer) {
-            this.correctAnswers += 1
-        }
+        const isAnswerCorrect = answer === this.questions[this.currentQuestionIndex].answer
+        if (isAnswerCorrect) this.correctAnswers += 1
+        return isAnswerCorrect
     }
 
     hasEnded() {
