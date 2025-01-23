@@ -22,8 +22,9 @@ class Quiz {
 
     checkAnswer(answer) {
         const isAnswerCorrect = answer === this.questions[this.currentQuestionIndex].answer
-        if (isAnswerCorrect) this.correctAnswers += 1
-        return isAnswerCorrect
+        if (isAnswerCorrect) {
+            this.correctAnswers++
+        }
     }
 
     hasEnded() {
@@ -44,6 +45,12 @@ class Quiz {
     averageDifficulty() {
         const sumOfDifficulties = this.questions.reduce((acc, question) => acc + question.difficulty, 0)
         return sumOfDifficulties / this.questions.length
+    }
+
+    restartQuiz() {
+        this.shuffleQuestions()
+        this.currentQuestionIndex = 0
+        this.correctAnswers = 0
     }
 
 }
